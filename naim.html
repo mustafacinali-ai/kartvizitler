@@ -1,0 +1,9 @@
+<html>
+<head>
+<script>
+var vcard = "BEGIN:VCARD\nVERSION:3.0\nFN:Naim Elmas\nN:Elmas;Naim;;;\nTEL;TYPE=CELL:+905338167206\nEMAIL:naimelmas@gmail.com\nORG:Collapssi\nEND:VCARD";
+var blob = new Blob([vcard], {type: "text/vcard"});
+window.location.href = URL.createObjectURL(blob);
+</script>
+</head>
+</html>

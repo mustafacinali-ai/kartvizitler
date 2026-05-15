@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script>
+async function loadCard() {
+  const imgUrl = "https://raw.githubusercontent.com/mustafacinali-ai/kartvizitler/main/Adsiz.png";
+  const response = await fetch(imgUrl);
+  const blob = await response.blob();
+  const reader = new FileReader();
+  reader.onloadend = function() {
+    const base64 = reader.result.split(',')[1];
+    const vcard = "BEGIN:VCARD\nVERSION:3.0\nFN:Mustafa Cinali\nN:Cinali;Mustafa;;;\nTEL;TYPE=CELL:+905325906200\nEMAIL:mustafacinali@collapssi.com\nORG:Collapssi Teknoloji ve Bilisim Hizmetleri TIC. LTD STI\nTITLE:Kurucu Ortak\nURL:https://www.collapssi.com\nADR;TYPE=WORK:;;Atakent Mh. 241 Sk Terrace Tema B Blok No 7/1 Ic Kapi 104;Kucukcekmece;Istanbul;;Turkiye\nURL;type=LinkedIn:https://www.linkedin.com/in/mustafa-cinali-206291302/\nPHOTO;ENCODING=b;TYPE=JPEG:" + base64 + "\nEND:VCARD";
+    const vcardBlob = new Blob([vcard], {type: "text/vcard"});
+    window.location.href = URL.createObjectURL(vcardBlob);
+  };
+  reader.readAsDataURL(blob);
+}
+loadCard();
+</script>
+</head>
+<body>
+<p>Yükleniyor...</p>
+</body>
+</html>
